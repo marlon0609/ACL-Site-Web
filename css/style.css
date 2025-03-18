@@ -27,7 +27,7 @@ h3,
 h4,
 .h4,
 .fw-medium {
-    font-weight: 600 !important;
+    font-weight: bold !important;
 }
 
 h5,
@@ -154,6 +154,26 @@ h6,
         transition: .5s;
         opacity: 1;
     }
+}
+
+#btn_sound {
+    position: absolute;
+    top: 500px;
+    right: 200px;
+    z-index: 1000;
+    border: 3px solid #92ae57;
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 3px;
+}
+#btn_sound svg {
+    width: 25px;
+    height: 25px;
+}
+.wpb_wrapper>div {
+    margin-bottom: 24px;
 }
 
 
