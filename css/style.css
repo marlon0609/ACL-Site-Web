@@ -157,10 +157,12 @@ h6,
 }
 
 #btn_sound {
+    cursor: pointer;
     position: absolute;
-    top: 500px;
-    right: 200px;
-    z-index: 1000;
+    top: 10px;
+    bottom: 20px;
+    right: 10px;
+    z-index: 2;
     border: 3px solid #92ae57;
     width: 35px;
     height: 35px;
@@ -178,66 +180,216 @@ h6,
 
 
 /*** Header ***/
-.carousel-caption {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: rgba(1, 92, 48, 0.6);
-    z-index: 1;
-}
-
-.nectar-video-wrap {
-    opacity: 1;
-    background-position: center;
-    background-repeat: repeat;
-    height: 100%;
+/* Styles de base pour le carousel */
+#header-carousel {
+    position: relative;
     width: 100%;
-}
-
-.nectar-video-wrap video {
-    top: 0;
-    left: 0;
+    height: 100vh; /* Hauteur de la fenêtre */
+    overflow: hidden;
+  }
+  
+  /* Vidéo en arrière-plan */
+  .nectar-video-bg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
+    object-fit: cover; /* Assure que la vidéo couvre tout l'espace */
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place la vidéo en arrière-plan */
+  }
 
-.nectar-video-wrap video.nectar-lazy-video {
-    opacity: 1;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 15%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 3rem;
-    background-color: var(--primary);
-    border: 10px solid var(--primary);
-}
-
-@media (max-width: 768px) {
-    #header-carousel .carousel-item {
-        position: relative;
-        min-height: 450px;
+  .carousel-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    }    /* Styles de base pour le Titre principal */
+    .carousel-caption h6 {
+        font-weight: bold;
+        color: white;
+        margin-bottom: 20px;
     }
     
-    #header-carousel .carousel-item img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    /* Styles pour les écrans larges (>= 1200px) */
+    @media (min-width: 1200px) {
+        .carousel-caption h6 {
+            font-size: 60px; /* Taille pour les grands écrans */
+        }
+        .carousel-caption h6 span {
+            font-size: 60px; /* Taille pour les grands écrans */
+        }
+        .carousel-caption h6 .small-text[style*="font-size:20px"] {
+            font-size: 20px; /* Taille pour les petits textes */
+        }
     }
-}
+    
+    /* Styles pour les écrans moyens (>= 992px et < 1200px) */
+    @media (max-width: 1199.98px) {
+        .carousel-caption h6 {
+            font-size: 50px; /* Taille réduite */
+        }
+        .carousel-caption h6 span {
+            font-size: 50px; /* Taille réduite */
+        }
+        .carousel-caption h6 .small-text[style*="font-size:20px"] {
+            font-size: 18px; /* Taille réduite pour les petits textes */
+        }
+    }
+    
+    /* Styles pour les tablettes (>= 768px et < 992px) */
+    @media (max-width: 991.98px) {
+        #header-carousel {
+            height: 80vh; /* Réduit la hauteur pour les tablettes */
+        }
+        .carousel-caption h6 {
+            font-size: 30px; /* Taille réduite pour les titres */
+        }
+        .carousel-caption h6 span {
+            font-size: 20px; /* Taille réduite pour les sous-titres */
+        }
+        .carousel-caption h6 .small-text {
+            font-size: 20px; /* Taille réduite pour les sous-titres */
+        }
+    }
+    
+    /* Styles pour les mobiles (>= 576px et < 768px) */
+    @media (max-width: 767.98px) {
+        #header-carousel {
+            min-height: 60vh; /* Réduit encore la hauteur pour les mobiles */
+        }
+        .carousel-caption h6 {
+            font-size: 24px; /* Taille encore plus réduite pour les titres */
+        }
+        .carousel-caption h6 span {
+            font-size: 16px; /* Taille encore plus réduite pour les sous-titres */
+        }
+        .carousel-caption h6 .small-text {
+            font-size: 16px; /* Taille encore plus réduite pour les sous-titres */
+        }
+    }
+    
+    /* Styles pour les petits mobiles (< 576px) */
+    @media (max-width: 575.98px) {
+        .carousel-caption h6 {
+            font-size: 20px; /* Taille minimale pour les très petits écrans */
+        }
+        .carousel-caption h6 span {
+            font-size: 14px; /* Taille minimale pour les sous-titres */
+        }
+        .carousel-caption h6 span .small-text {
+            font-size: 14px; /* Taille minimale pour les sous-titres */
+        }
+    }
+  
+  /* Conteneur du contenu */
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    width: 100%;
+    padding: 0 15px; /* Ajout de padding pour les petits écrans */
+  }
+  
+  /* Bouton de volume */
+  #btn_sound {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    bottom: 20px;
+    right: 10px;
+    z-index: 2;
+  }
+  
+    /* Styles responsives */
+    /* Styles de base pour le Titre principal */
+  .carousel-caption h6 {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles pour les écrans larges (>= 1200px) */
+  @media (min-width: 1200px) {
+    .carousel-caption h6 {
+      font-size: 60px; /* Taille pour les grands écrans */
+    }
+    .carousel-caption h6 span {
+      font-size: 60px; /* Taille pour les grands écrans */
+    }
+    .carousel-caption h6 .small-text[style*="font-size:20px"] {
+      font-size: 20px; /* Taille pour les petits textes */
+    }
+  }
+  
+  /* Styles pour les écrans moyens (>= 992px) */
+  @media (max-width: 1199.98px) {
+    .carousel-caption h6 {
+      font-size: 50px; /* Taille réduite */
+    }
+    .carousel-caption h6 span {
+      font-size: 50px; /* Taille réduite */
+    }
+    .carousel-caption h6 .small-text[style*="font-size:20px"] {
+      font-size: 18px; /* Taille réduite pour les petits textes */
+    }
+  }
+  
+  /* Styles pour les tablettes (>= 768px) */
+  @media (max-width: 991.98px) {
+    #header-carousel {
+        height: 80vh; /* Réduit la hauteur pour les tablettes */
+    }
+
+    .carousel-caption h6 {
+        font-size: 30px; /* Taille réduite pour les titres */
+    }
+
+    .carousel-caption h6 span {
+        font-size: 20px; /* Taille réduite pour les sous-titres */
+    }
+
+    .carousel-caption h6 .small-text {
+        font-size: 20px; /* Taille réduite pour les sous-titres */
+    }
+  }
+  
+  /* Styles pour les mobiles (>= 576px) */
+  @media (max-width: 767.98px) {
+    #header-carousel {
+        min-height: 60vh; /* Réduit encore la hauteur pour les mobiles */
+    }
+
+    .carousel-caption h6 {
+        font-size: 24px; /* Taille encore plus réduite pour les titres */
+    }
+
+    .carousel-caption h6 span {
+        font-size: 16px; /* Taille encore plus réduite pour les sous-titres */
+    }
+
+    .carousel-caption h6 .small-text {
+        font-size: 16px; /* Taille encore plus réduite pour les sous-titres */
+    }
+  }
+  
+  /* Styles pour les petits mobiles (< 576px) */
+  @media (max-width: 575.98px) {
+    .carousel-caption h6 {
+        font-size: 20px; /* Taille minimale pour les très petits écrans */
+    }
+
+    .carousel-caption h6 span {
+        font-size: 14px; /* Taille minimale pour les sous-titres */
+    }
+
+    .carousel-caption h6 span .small-text {
+        font-size: 14px; /* Taille minimale pour les sous-titres */
+    }
+  }
 
 .page-header {
     background: linear-gradient(rgba(15, 66, 41, .6), rgba(15, 66, 41, .6)), url(../img/carousel-1.jpg) center center no-repeat;
